@@ -1,5 +1,6 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { withBasePath } from "@/lib/paths";
 import { cn } from "@/lib/utils";
 
 type ButtonProps = {
@@ -43,7 +44,7 @@ export function Button({
   if (isSpecial && !isHash) {
     return (
       <a
-        href={href}
+        href={withBasePath(href)}
         className={base}
         target={external ? "_blank" : undefined}
         rel={external ? "noopener noreferrer" : undefined}

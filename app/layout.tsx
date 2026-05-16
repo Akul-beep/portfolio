@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import { siteUrl } from "@/lib/paths";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -10,7 +11,7 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://akulnehra.com"),
+  metadataBase: new URL(siteUrl),
   title: "Akul Nehra · iOS & Full-Stack Developer · SWE Intern 2026",
   description:
     "Akul Nehra — iOS (Swift) and full-stack (Next.js) developer. App Store apps, IEEE research, Rove internship, Harvard HUVTSP. Open to SWE internships Summer 2026.",
