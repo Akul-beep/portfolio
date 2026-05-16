@@ -194,7 +194,7 @@ export const projects: Project[] = [
     problem:
       "Rural women lacked accessible financial education across borders.",
     approach:
-      "Founded a nonprofit with curriculum, workshops, and tools — **$2,500 Youth Action Fund** recipient scaling financial literacy programs.",
+      "Founded a nonprofit with curriculum, workshops, and tools — $2,500 Youth Action Fund recipient scaling financial literacy programs.",
     stack: ["Nonprofit", "Curriculum", "Operations"],
     impact: "$2,500 grant · 300+ women · 4 countries",
     image: "/projects/arise.png",
