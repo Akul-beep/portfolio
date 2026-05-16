@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Akul Nehra — developer, founder, IEEE researcher. Orion Finance, Flowly, Rove intern, Project ARISE."
+    />
+    <meta property="og:title" content="Akul Nehra · Developer & Founder" />
+    <meta property="og:description" content="Apps, AI, research, and global impact — open to SWE internships." />
+    <meta property="og:image" content="img1.png" />
+    <title>Akul Nehra · Developer & Founder</title>
+    <link rel="shortcut icon" type="image/x-icon" href="tab.png" />
+    <link rel="stylesheet" href="portfolio.css" />
+  </head>
+  <body>
+    <div class="bg-glow" aria-hidden="true"></div>
+
+    <div class="page">
+      <header class="site-header reveal">
+        <a class="brand" href="#hero" id="brand-link">
+          <span class="brand__logo" aria-hidden="true"></span>
+          <span class="brand__email" id="brand-email"></span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a href="#story">About</a>
+          <a href="#work">Work</a>
+          <a class="nav-pill" id="nav-resume" href="/resume.pdf" download>Resume</a>
+          <a class="nav-icon" id="nav-github" href="#" target="_blank" rel="noopener" aria-label="GitHub">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+          </a>
+        </nav>
+        <button class="menu-btn" type="button" aria-label="Menu" id="menu-btn">
+          <span></span><span></span><span></span>
+        </button>
+      </header>
+
+      <nav class="nav-drawer" id="nav-drawer" aria-hidden="true">
+        <div class="nav-drawer__backdrop" id="nav-backdrop"></div>
+        <div class="nav-drawer__panel">
+          <a href="#hero">Home</a>
+          <a href="#spotlight">Rove</a>
+          <a href="#story">About</a>
+          <a href="#work">Work</a>
+          <a id="drawer-resume" href="/resume.pdf" download>Resume</a>
+          <a id="drawer-github" href="#" target="_blank" rel="noopener">GitHub</a>
+          <a id="drawer-linkedin" href="#" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+      </nav>
+
+      <main>
+        <section class="hero reveal" id="hero">
+          <p class="hero__eyebrow">
+            <span id="typed-tagline"></span><span class="type-cursor" id="type-cursor"></span>
+          </p>
+          <h1 class="hero__title">
+            Hi, I'm
+            <img src="img1.png" alt="" class="hero__avatar" width="60" height="60" />
+            <span id="hero-name">Akul Nehra</span>!
+          </h1>
+          <p class="hero__subtitle">
+            I'm a <strong id="hero-role"></strong> at
+            <span class="accent" id="hero-org"></span>.
+            <span class="status-badge" id="hero-status"></span>
+          </p>
+          <div class="hero__stats" id="hero-stats"></div>
+          <div class="hero__cta-row">
+            <a class="btn-primary" href="#spotlight">My story</a>
+            <a class="btn-ghost" id="hero-resume" href="/resume.pdf" download>Resume</a>
+            <p class="hero__aside" id="hero-intro"></p>
+          </div>
+        </section>
+
+        <section class="spotlight reveal" id="spotlight">
+          <div class="spotlight__inner" id="spotlight-content"></div>
+        </section>
+
+        <section class="story reveal" id="story">
+          <h2 class="story__headline" id="story-headline"></h2>
+          <div class="story__body" id="story-body"></div>
+        </section>
+
+        <section class="bento" id="work" aria-label="Portfolio">
+          <article class="bento-card bento-card--tall reveal">
+            <p class="bento-card__label">My experience</p>
+            <ul class="exp-list" id="exp-list"></ul>
+          </article>
+
+          <div class="bento-stack reveal" id="project-tiles" style="--delay: 1"></div>
+
+          <article class="bento-card bento-card--tall reveal" style="--delay: 2">
+            <p class="bento-card__label">Honors & awards</p>
+            <ul class="honors-list" id="honors-list"></ul>
+          </article>
+
+          <article class="bento-card map-card reveal" style="--delay: 3">
+            <p class="bento-card__label map-card__label">Map</p>
+            <div class="map-card__visual" aria-hidden="true"></div>
+            <div class="map-card__content">
+              <p class="map-card__city" id="map-city"></p>
+              <p class="map-card__coords" id="map-coords"></p>
+            </div>
+          </article>
+
+          <article class="bento-card bento-card--wide build-card reveal" style="--delay: 4">
+            <p class="bento-card__label">Explore my work</p>
+            <div class="build-card__panel" id="build-panel">
+              <h2 class="build-card__heading" id="build-heading"></h2>
+              <p class="build-card__body" id="build-body"></p>
+              <div class="build-card__links" id="build-links"></div>
+            </div>
+            <div class="build-steps" id="build-steps" role="tablist"></div>
+          </article>
+
+          <article class="bento-card reveal" style="--delay: 5">
+            <p class="bento-card__label">Skills</p>
+            <div id="skills-groups"></div>
+          </article>
+        </section>
+
+        <section class="connect reveal" id="contact">
+          <h2 class="connect__title">Let's build something.</h2>
+          <p class="connect__text" id="about-bio"></p>
+          <div class="connect__actions" id="footer-links"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer reveal">
+        <p class="site-footer__copy">© <span id="year"></span> <span id="footer-name"></span></p>
+      </footer>
+    </div>
+
+    <script type="module" src="index.js"></script>
+  </body>
+</html>
