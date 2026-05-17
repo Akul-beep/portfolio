@@ -1,6 +1,10 @@
+"use client";
+
 import type { ReactNode } from "react";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import { withBasePath } from "@/lib/paths";
+import { springSnappy } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type ButtonProps = {
@@ -12,6 +16,12 @@ type ButtonProps = {
   className?: string;
 };
 
+const motionProps = {
+  whileHover: { scale: 1.04, y: -1 },
+  whileTap: { scale: 0.97 },
+  transition: springSnappy,
+};
+
 export function Button({
   href,
   children,
@@ -20,12 +30,12 @@ export function Button({
   download,
   className,
 }: ButtonProps) {
+  const reduceMotion = useReducedMotion();
+
   const base = cn(
-    "inline-flex h-11 items-center justify-center rounded-lg px-5 text-sm font-semibold transition-all duration-200",
-    variant === "primary" &&
-      "bg-ink text-white hover:bg-accent",
-    variant === "secondary" &&
-      "bg-accent text-white hover:bg-ink",
+    "inline-flex h-11 items-center justify-center rounded-lg px-5 text-sm font-semibold transition-colors duration-200",
+    variant === "primary" && "bg-ink text-white hover:bg-accent",
+    variant === "secondary" && "bg-accent text-white hover:bg-ink",
     variant === "ghost" &&
       "border border-black/10 bg-white text-ink hover:border-ink/20",
     variant === "ghostOnDark" &&
@@ -41,8 +51,17 @@ export function Button({
     href.startsWith("tel:") ||
     href.startsWith("http");
 
+  const wrap = (node: ReactNode) =>
+    reduceMotion ? (
+      node
+    ) : (
+      <motion.span className="inline-flex h-11 items-center" {...motionProps}>
+        {node}
+      </motion.span>
+    );
+
   if (isSpecial && !isHash) {
-    return (
+    return wrap(
       <a
         href={withBasePath(href)}
         className={base}
@@ -55,7 +74,7 @@ export function Button({
     );
   }
 
-  return (
+  return wrap(
     <Link href={href} className={base}>
       {children}
     </Link>

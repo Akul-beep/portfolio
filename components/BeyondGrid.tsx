@@ -1,7 +1,11 @@
+"use client";
+
 import { beyond } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { Reveal } from "@/components/ui/Reveal";
 import { RichText } from "@/components/ui/RichText";
+import { InteractiveCard } from "@/components/motion/InteractiveCard";
+import { AnimatedLink } from "@/components/motion/AnimatedLink";
 
 export function BeyondGrid() {
   const [highlight, ...rest] = beyond;
@@ -14,8 +18,8 @@ export function BeyondGrid() {
       description="Debate, engineering, and leadership — where I build grit and communication."
     >
       {highlight ? (
-        <Reveal>
-          <article className="card-surface mb-5 grid gap-6 p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8 lg:mb-6">
+        <Reveal variant="scale">
+          <InteractiveCard className="mb-5 grid gap-6 p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8 lg:mb-6">
             <div>
               <p className="text-[11px] font-bold uppercase tracking-wider text-soft">
                 {highlight.date}
@@ -36,14 +40,14 @@ export function BeyondGrid() {
                 </span>
               ))}
             </div>
-          </article>
+          </InteractiveCard>
         </Reveal>
       ) : null}
 
       <div className="grid gap-4 sm:grid-cols-2">
         {rest.map((item, i) => (
-          <Reveal key={item.slug} delay={i * 0.05}>
-            <article className="card-surface flex h-full flex-col p-5 sm:p-6">
+          <Reveal key={item.slug} delay={i * 0.05} variant="up">
+            <InteractiveCard className="flex h-full flex-col p-5 sm:p-6">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="font-bold text-ink">{item.title}</h3>
                 {item.date ? (
@@ -53,21 +57,13 @@ export function BeyondGrid() {
                 ) : null}
               </div>
               <p className="mt-1 text-sm font-medium text-accent">{item.subtitle}</p>
-              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">
-                {item.story}
-              </p>
+              <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{item.story}</p>
               {item.link ? (
-                <a
-                  href={item.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-arrow mt-4"
-                >
+                <AnimatedLink href={item.link} className="mt-4">
                   Learn more
-                  <span aria-hidden>→</span>
-                </a>
+                </AnimatedLink>
               ) : null}
-            </article>
+            </InteractiveCard>
           </Reveal>
         ))}
       </div>

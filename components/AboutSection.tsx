@@ -1,8 +1,11 @@
+"use client";
+
 import { education, personality, story, experience } from "@/lib/content";
 import { Section } from "@/components/ui/Section";
 import { Chip } from "@/components/ui/Chip";
 import { Reveal } from "@/components/ui/Reveal";
 import { RichText } from "@/components/ui/RichText";
+import { InteractiveCard } from "@/components/motion/InteractiveCard";
 
 export function AboutSection() {
   const featuredExp = experience.filter((e) => e.featured);
@@ -13,12 +16,12 @@ export function AboutSection() {
       id="about"
       index="03"
       title={story.headline}
-      description="Developer, founder, and researcher — based in New Delhi."
+      description="Developer, founder, and researcher."
       alt
     >
       <div className="mb-10 grid gap-6 lg:grid-cols-2">
         <Reveal>
-          <div className="card-surface h-full p-6 sm:p-7">
+          <InteractiveCard className="h-full p-6 sm:p-7" as="div">
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-soft">Education</p>
             <h3 className="mt-3 text-lg font-bold text-ink">{education.school}</h3>
             <ul className="mt-4 space-y-2">
@@ -37,11 +40,11 @@ export function AboutSection() {
                 </li>
               ))}
             </ul>
-          </div>
+          </InteractiveCard>
         </Reveal>
 
         <Reveal delay={0.06}>
-          <div className="card-surface h-full p-6 sm:p-7">
+          <InteractiveCard className="h-full p-6 sm:p-7" as="div">
             <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-soft">Recent roles</p>
             <ul className="mt-5 space-y-5">
               {[...featuredExp, ...otherExp].map((item) => (
@@ -64,7 +67,7 @@ export function AboutSection() {
               Full timeline
               <span aria-hidden>→</span>
             </a>
-          </div>
+          </InteractiveCard>
         </Reveal>
       </div>
 
@@ -87,9 +90,12 @@ export function AboutSection() {
         </Reveal>
 
         <Reveal delay={0.08} className="lg:col-span-2">
-          <blockquote className="card-surface border-l-0 p-6 text-lg font-medium leading-relaxed text-ink/90 sm:p-7">
+          <InteractiveCard
+            as="div"
+            className="border-l-0 p-6 text-lg font-medium leading-relaxed text-ink/90 sm:p-7"
+          >
             {personality.paragraphs[0]}
-          </blockquote>
+          </InteractiveCard>
         </Reveal>
       </div>
     </Section>

@@ -51,14 +51,9 @@ export const site = {
   linkedin: "https://www.linkedin.com/in/akul-nehra-629994330/",
   github: "https://github.com/Akul-beep",
   resumeUrl: "/resume.pdf",
-  role: "iOS & full-stack developer",
   roleDetail: "founder · builder",
   org: "Genesis Global School",
   status: "Open to SWE internships · Summer 2026",
-  location: {
-    city: "New Delhi",
-    country: "India",
-  },
 };
 
 export const education = {
@@ -74,8 +69,15 @@ export const education = {
 };
 
 export const hero = {
+  typewriterPhrases: [
+    "Building intelligence, byte by byte.",
+    "Previously interned at Rove — YC-backed startup.",
+    "iOS & full-stack developer.",
+    "Shipping on the App Store · publishing ML research.",
+    "Open to SWE internships · Summer 2026.",
+  ] as const,
   positioning:
-    "Based in New Delhi — I build **iOS (Swift)** and **full-stack (Next.js)** products, publish **ML research**, and ship at startups and ventures.",
+    "I build **iOS (Swift)** and **full-stack (Next.js)** products, publish **ML research**, and ship at startups and ventures.",
   proofChips: ["App Store", "IEEE ICITSIF", "Harvard HUVTSP"],
   intro:
     "Seeking software engineering internships for Summer 2026 — explore my work below or email me to connect.",
@@ -105,7 +107,7 @@ export const spotlight = {
 export const story = {
   headline: "Who I am",
   paragraphs: [
-    "I'm a developer and founder in New Delhi, building at the intersection of code, research, and real-world impact — from **peer-reviewed AI work** to **apps on the App Store** and a **funded nonprofit**.",
+    "I'm a developer and founder building at the intersection of code, research, and real-world impact — from **peer-reviewed AI work** to **apps on the App Store** and a **funded nonprofit**.",
     "Recent highlights: **IEEE paper accepted**, **App Store launch**, **Rove** internship at a YC-backed startup, **Harvard HUVTSP**, and **Project ARISE** serving **300+ women across 4 countries**.",
   ],
 };
@@ -300,7 +302,7 @@ export const experience: ExperienceItem[] = [
   {
     title: "President",
     org: "School AI Club",
-    meta: "Present",
+    meta: "2025 — Present",
     bullets: [
       "Lead my school's AI Club with **25+ members**",
       "Mentor on applying data-driven thinking to real-world problems",

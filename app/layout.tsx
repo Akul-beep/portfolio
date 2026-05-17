@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { DM_Sans } from "next/font/google";
+import { AnimatedMesh } from "@/components/motion/AnimatedMesh";
+import { ScrollProgress } from "@/components/motion/ScrollProgress";
 import { siteUrl } from "@/lib/paths";
 import "./globals.css";
 
@@ -36,7 +38,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={dmSans.variable}>
       <body className="font-sans text-[15px] leading-relaxed text-muted">
-        <div className="bg-mesh" aria-hidden />
+        <ScrollProgress />
+        <AnimatedMesh />
         {children}
       </body>
     </html>

@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { navLinks, site } from "@/lib/content";
+import { motion, useReducedMotion } from "framer-motion";
+import { hero, navLinks, site } from "@/lib/content";
+import { TypewriterLine } from "@/components/motion/TypewriterLine";
 import { cn } from "@/lib/utils";
 
 function GitHubIcon() {
@@ -12,7 +14,6 @@ function GitHubIcon() {
     </svg>
   );
 }
-
 
 function LinkedInIcon() {
   return (
@@ -25,12 +26,27 @@ function LinkedInIcon() {
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [heroInView, setHeroInView] = useState(true);
+  const reduceMotion = useReducedMotion();
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const heroEl = document.getElementById("hero");
+    if (!heroEl) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setHeroInView(entry.isIntersecting),
+      { rootMargin: "-72px 0px 0px 0px", threshold: 0 }
+    );
+
+    observer.observe(heroEl);
+    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -47,28 +63,56 @@ export function SiteHeader() {
     <>
       <header
         className={cn(
-          "sticky top-0 z-50 border-b transition-all duration-300",
+          "sticky top-0 z-50 border-b pt-[3px] transition-[background-color,box-shadow,border-color] duration-300",
           scrolled
-            ? "border-black/[0.06] bg-[#fafafa]/90 backdrop-blur-md"
-            : "border-transparent bg-transparent"
+            ? "border-black/[0.06] bg-[#fafafa]/95 shadow-sm shadow-black/[0.03] backdrop-blur-md"
+            : "border-transparent bg-[#fafafa]/90 backdrop-blur-sm"
         )}
       >
-        <div className="page-shell flex h-16 items-center justify-between">
+        <motion.div
+          className="site-header-bar"
+          initial={reduceMotion ? false : { opacity: 0, y: -6 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+        >
           <Link
             href="#hero"
             onClick={close}
-            className="text-sm font-bold tracking-tight text-ink"
+            className="shrink-0 text-sm font-bold tracking-tight text-ink"
           >
             {firstName}
             <span className="text-accent">.</span>
           </Link>
 
-          <nav className="hidden items-center gap-1 md:flex" aria-label="Main">
+          {!heroInView ? (
+            <motion.div
+              className="hidden min-h-[1.25rem] min-w-0 flex-1 justify-center px-4 xl:flex"
+              initial={reduceMotion ? false : { opacity: 0, y: -4 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <TypewriterLine
+                phrases={hero.typewriterPhrases}
+                className="max-w-md text-center text-xs font-medium text-muted sm:text-sm"
+                typeSpeed={36}
+                deleteSpeed={20}
+                pauseMs={2800}
+              />
+            </motion.div>
+          ) : null}
+
+          <nav
+            className={cn(
+              "hidden shrink-0 items-center lg:flex",
+              heroInView && "lg:ml-auto"
+            )}
+            aria-label="Main"
+          >
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="rounded-lg px-3.5 py-2 text-sm font-medium text-muted transition-colors hover:bg-black/[0.04] hover:text-ink"
+                className="rounded-lg px-3 py-2 text-sm font-medium text-muted transition-colors hover:bg-black/[0.04] hover:text-ink"
               >
                 {link.label}
               </Link>
@@ -78,7 +122,7 @@ export function SiteHeader() {
               href={site.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted hover:bg-black/[0.04] hover:text-ink"
+              className="rounded-lg p-2 text-muted transition-colors hover:bg-black/[0.04] hover:text-ink"
               aria-label="GitHub"
             >
               <GitHubIcon />
@@ -87,7 +131,7 @@ export function SiteHeader() {
               href={site.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="rounded-lg p-2 text-muted hover:bg-black/[0.04] hover:text-ink"
+              className="rounded-lg p-2 text-muted transition-colors hover:bg-black/[0.04] hover:text-ink"
               aria-label="LinkedIn"
             >
               <LinkedInIcon />
@@ -95,7 +139,7 @@ export function SiteHeader() {
             <Link
               href={site.resumeUrl}
               download
-              className="ml-1 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition hover:bg-accent"
+              className="ml-1 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent"
             >
               Resume
             </Link>
@@ -103,52 +147,56 @@ export function SiteHeader() {
 
           <button
             type="button"
-            className="flex h-10 w-10 items-center justify-center rounded-lg border border-black/10 bg-white md:hidden"
+            className="ml-auto flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-black/10 bg-white lg:hidden"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen(!open)}
           >
             <span className="sr-only">Menu</span>
-            <div className="flex w-5 flex-col gap-1">
+            <span className="relative block h-3.5 w-5">
               <span
                 className={cn(
-                  "h-0.5 w-full bg-ink transition",
-                  open && "translate-y-1.5 rotate-45"
+                  "absolute left-0 top-0 block h-0.5 w-5 bg-ink transition-transform duration-200",
+                  open && "top-1.5 rotate-45"
                 )}
               />
               <span
-                className={cn("h-0.5 w-full bg-ink transition", open && "opacity-0")}
+                className={cn(
+                  "absolute left-0 top-1.5 block h-0.5 w-5 bg-ink transition-opacity duration-150",
+                  open && "opacity-0"
+                )}
               />
               <span
                 className={cn(
-                  "h-0.5 w-full bg-ink transition",
-                  open && "-translate-y-1.5 -rotate-45"
+                  "absolute left-0 top-3 block h-0.5 w-5 bg-ink transition-transform duration-200",
+                  open && "top-1.5 -rotate-45"
                 )}
               />
-            </div>
+            </span>
           </button>
-        </div>
+        </motion.div>
       </header>
 
-      <div
+      <motion.div
         className={cn(
-          "fixed inset-0 z-40 md:hidden",
+          "fixed inset-0 z-40 lg:hidden",
           open ? "pointer-events-auto" : "pointer-events-none"
         )}
+        initial={false}
+        animate={{ opacity: open ? 1 : 0 }}
+        transition={{ duration: 0.2 }}
         aria-hidden={!open}
       >
         <button
           type="button"
-          className={cn(
-            "absolute inset-0 bg-ink/50 transition-opacity",
-            open ? "opacity-100" : "opacity-0"
-          )}
+          className="absolute inset-0 bg-ink/50"
           onClick={close}
           aria-label="Close menu"
+          tabIndex={open ? 0 : -1}
         />
         <nav
           className={cn(
-            "absolute right-0 top-0 flex h-full w-[min(100%,300px)] flex-col bg-white p-6 pt-20 shadow-2xl transition-transform duration-300",
+            "absolute right-0 top-0 flex h-full w-[min(100%,300px)] flex-col gap-1 bg-white p-6 pt-20 shadow-2xl transition-transform duration-300 ease-out",
             open ? "translate-x-0" : "translate-x-full"
           )}
           aria-label="Mobile"
@@ -170,12 +218,19 @@ export function SiteHeader() {
               {link.label}
             </Link>
           ))}
-<a
+          <a
+            href={site.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-lg px-4 py-3 font-medium text-ink hover:bg-black/[0.04]"
+          >
+            GitHub
+          </a>
+          <a
             href={site.linkedin}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-lg px-4 py-3 font-medium text-ink hover:bg-black/[0.04]"
-            onClick={close}
           >
             LinkedIn
           </a>
@@ -188,7 +243,7 @@ export function SiteHeader() {
             Resume
           </Link>
         </nav>
-      </div>
+      </motion.div>
     </>
   );
 }

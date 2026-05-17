@@ -1,6 +1,10 @@
+"use client";
+
 import type { ReactNode } from "react";
+import { motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { Reveal } from "@/components/ui/Reveal";
+import { tween } from "@/lib/motion";
 
 type SectionProps = {
   id: string;
@@ -21,6 +25,8 @@ export function Section({
   alt = false,
   className,
 }: SectionProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
     <section
       id={id}
@@ -32,19 +38,23 @@ export function Section({
     >
       <div className="page-shell">
         <Reveal>
-          <header className="mb-12 flex flex-col gap-4 border-b border-black/[0.07] pb-8 sm:mb-14 sm:flex-row sm:items-end sm:justify-between">
-            <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.24em] text-soft">
+          <header className="section-heading">
+            <div className="section-heading__title">
+              <motion.p
+                className="text-[11px] font-bold uppercase tracking-[0.24em] text-soft"
+                initial={reduceMotion ? false : { opacity: 0, scale: 0.9 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                viewport={{ once: true }}
+                transition={tween}
+              >
                 {index}
-              </p>
+              </motion.p>
               <h2 className="mt-2 text-3xl font-bold tracking-tight text-ink sm:text-4xl">
                 {title}
               </h2>
             </div>
             {description ? (
-              <p className="max-w-md text-base leading-relaxed text-muted sm:text-right">
-                {description}
-              </p>
+              <p className="section-heading__desc">{description}</p>
             ) : null}
           </header>
         </Reveal>

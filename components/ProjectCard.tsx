@@ -1,7 +1,12 @@
+"use client";
+
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import type { Project } from "@/lib/content";
 import { Chip } from "@/components/ui/Chip";
 import { Reveal } from "@/components/ui/Reveal";
+import { AnimatedLink } from "@/components/motion/AnimatedLink";
+import { springSnappy } from "@/lib/motion";
 import { cn } from "@/lib/utils";
 
 type ProjectCardProps = {
@@ -11,13 +16,25 @@ type ProjectCardProps = {
 };
 
 export function ProjectCard({ project, index, featured }: ProjectCardProps) {
+  const reduceMotion = useReducedMotion();
+
   return (
-    <Reveal delay={index * 0.06}>
-      <article
+    <Reveal delay={index * 0.06} variant="scale">
+      <motion.article
         className={cn(
-          "card-surface group flex h-full flex-col p-6 transition-shadow duration-300 hover:shadow-[0_12px_40px_rgba(0,0,0,0.08)] sm:p-7",
+          "card-surface group flex h-full flex-col p-6 sm:p-7",
           featured && "lg:flex-row lg:gap-10 lg:p-8"
         )}
+        whileHover={
+          reduceMotion
+            ? undefined
+            : {
+                y: -8,
+                boxShadow:
+                  "0 1px 2px rgba(0,0,0,0.04), 0 24px 56px rgba(0,0,0,0.1), 0 0 0 1px rgba(255,92,0,0.08)",
+              }
+        }
+        transition={springSnappy}
       >
         <div
           className={cn(
@@ -26,7 +43,7 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
           )}
         >
           {project.image ? (
-            <div
+            <motion.div
               className={cn(
                 "relative overflow-hidden rounded-xl border border-black/[0.06]",
                 project.imageFit === "contain"
@@ -42,6 +59,8 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
                   project.imageBg ??
                   (project.imageFit === "contain" ? "#ffffff" : "#0c0c0c"),
               }}
+              whileHover={reduceMotion ? undefined : { scale: 1.05 }}
+              transition={springSnappy}
             >
               <Image
                 src={project.image}
@@ -52,7 +71,7 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
                 }
                 sizes={featured ? "112px" : "96px"}
               />
-            </div>
+            </motion.div>
           ) : (
             <div
               className="flex h-12 w-12 items-center justify-center rounded-xl text-sm font-bold text-white"
@@ -62,7 +81,7 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
             </div>
           )}
           <p
-            className="text-xs font-bold uppercase tracking-wider"
+            className="text-xs font-bold uppercase tracking-wider transition-colors duration-300"
             style={{ color: project.color }}
           >
             {project.impact}
@@ -70,7 +89,9 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
         </div>
 
         <div className={cn("mt-5 flex flex-1 flex-col", featured && "lg:mt-0")}>
-          <h3 className="text-xl font-bold tracking-tight text-ink">{project.title}</h3>
+          <h3 className="text-xl font-bold tracking-tight text-ink transition-colors group-hover:text-accent">
+            {project.title}
+          </h3>
           <p className="mt-1 text-sm font-medium text-muted">{project.tagline}</p>
           <p
             className={cn(
@@ -91,21 +112,14 @@ export function ProjectCard({ project, index, featured }: ProjectCardProps) {
           {project.links.length > 0 ? (
             <div className="mt-auto flex flex-wrap gap-4 border-t border-black/[0.06] pt-5">
               {project.links.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="link-arrow"
-                >
+                <AnimatedLink key={link.href} href={link.href}>
                   {link.label}
-                  <span aria-hidden>→</span>
-                </a>
+                </AnimatedLink>
               ))}
             </div>
           ) : null}
         </div>
-      </article>
+      </motion.article>
     </Reveal>
   );
 }
