@@ -4,7 +4,7 @@ Drop these files in `public/` so the site is complete:
 
 | File | Purpose |
 |------|---------|
-| `resume.pdf` | Required — all Resume buttons link here |
+| `resume.pdf` | Required — embedded at `/resume` and available for download |
 | `projects/orion.png` | Optional — Orion Finance screenshot (then set `image` in `lib/content.ts`) |
 | `projects/flowly.png` | Optional — Flowly screenshot |
 | `projects/ieee.png` | Optional — Research / paper figure |

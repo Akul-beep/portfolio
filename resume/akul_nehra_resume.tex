@@ -1,0 +1,127 @@
+% Akul Nehra — Resume (ATS-friendly)
+% Compile on Overleaf: Menu → Compiler → pdfLaTeX
+% Add your phone number in the header line below if desired.
+
+\documentclass[11pt,letterpaper]{article}
+
+\usepackage[letterpaper,margin=0.55in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+
+\titleformat{\section}{\large\bfseries}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{8pt}{4pt}
+
+\newcommand{\resumeSubheading}[4]{%
+  \vspace{2pt}
+  \textbf{#1} \hfill \textbf{#2} \\
+  \textit{#3} \hfill \textit{#4} \\
+}
+
+\newcommand{\resumeItem}[1]{\item\small{#1}}
+
+\begin{document}
+
+% ---------- Header ----------
+\begin{center}
+  {\LARGE \textbf{Akul Nehra}} \\[4pt]
+  \small
+  New Delhi, India \textbar\
+  \href{mailto:akulnehra@gmail.com}{akulnehra@gmail.com} \textbar\
+  \href{https://akulnehra.com}{akulnehra.com} \textbar\
+  \href{https://www.linkedin.com/in/akul-nehra-629994330/}{LinkedIn} \textbar\
+  \href{https://github.com/Akul-beep}{GitHub}
+\end{center}
+
+\vspace{2pt}
+\begin{center}
+  \small\textit{High school developer · iOS \& React/TypeScript · seeking mobile (React Native) \& SWE internships · Fall/Winter 2025 \& Summer 2026}
+\end{center}
+
+% ---------- Technical Skills ----------
+\section{Technical Skills}
+\small
+\textbf{Languages:} JavaScript, TypeScript, Python, Swift, SQL \\
+\textbf{Mobile \& Frontend:} React.js, Next.js, iOS (Swift, UIKit), responsive UI, component-based architecture, REST API integration \\
+\textbf{React Native alignment:} Production React/TypeScript + shipped native iOS (App Store); familiar with cross-platform mobile patterns, debugging, and release workflows \\
+\textbf{Backend \& Data:} Node.js, Firebase, Supabase, Python (ML/research), AI/LLM APIs \\
+\textbf{Developer Tools:} Git/GitHub, VS Code, Cursor, Vercel, Xcode, Chrome DevTools \\
+\textbf{Deployment:} App Store (iOS); Vercel (web); performance-minded UI iteration and code review \\
+\textbf{Soft Skills:} User research, technical writing, cross-functional collaboration, public speaking, mentorship
+
+% ---------- Experience ----------
+\section{Experience}
+
+\resumeSubheading{Technical Intern}{Jun 2025 -- Jul 2025}{Rove Miles (YC W24)}{Remote}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Interned at a YC-backed universal airline miles platform (Rove Miles), shipping production code $\sim$15 hrs/week with the engineering team}
+  \resumeItem{Built and refined \textbf{flight tracking routes} and \textbf{destination optimization}---routing logic and data-driven improvements to core search and discovery flows}
+  \resumeItem{Developed features integrating airline and pricing APIs; improved flight comparison UX, filtering, and real-time data handling for early users}
+  \resumeItem{Supported value-per-mile ranking and recommendation logic across redemption options; participated in code reviews and performance-focused iteration}
+\end{itemize}
+
+\resumeSubheading{Founder \& Developer}{2025 -- Present}{Orion Finance}{iOS / App Store}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Designed, built, and launched a personal finance app on the \textbf{App Store} using Swift and UIKit with a hypothesis-driven product loop: ship, user feedback, iterate}
+  \resumeItem{Owned mobile UX, state management, and App Store release---demonstrating end-to-end iOS delivery from prototype to production}
+\end{itemize}
+
+\resumeSubheading{President}{2025 -- Present}{School AI Club}{Genesis Global School}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Lead \textbf{25+ members}; mentor peers on data-driven problem solving, model limitations, and ethical AI deployment}
+\end{itemize}
+
+\resumeSubheading{Executive Director}{2025 -- Present}{Project ARISE}{Nonprofit}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Founded financial-literacy nonprofit; \textbf{\$2,500} IB Youth Action Fund grant; curriculum and workshops for \textbf{300+ women} across \textbf{4 countries}}
+\end{itemize}
+
+\resumeSubheading{Founder}{2025 -- Present}{Frontier Challenge}{Global}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Built operations, outreach, and judging for a global STEM challenge---\textbf{200+} participants, \textbf{$\sim$14 countries}; raised \textbf{\$500+} in two weeks}
+\end{itemize}
+
+% ---------- Projects ----------
+\section{Projects}
+
+\resumeSubheading{Flowly}{2025 -- Present}{Next.js, TypeScript, AI/LLM APIs, Vercel}{}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{AI-powered scheduler with adaptive task breakdowns; responsive web UI, API integration, and deployment on Vercel with real testers}
+\end{itemize}
+
+\resumeSubheading{IEEE ICITSIF Research}{2025 -- 2026}{Python, AI/ML}{}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Co-authored peer-reviewed paper \textbf{accepted} at IEEE ICITSIF 2026 (Jan 2026) modeling traffic incidents, wait times, and environmental impact}
+\end{itemize}
+
+% ---------- Education ----------
+\section{Education}
+
+\resumeSubheading{Genesis Global School}{New Delhi, India}{IB Programme}{2026 -- 2028}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Completed \textbf{IB MYP}; incoming \textbf{IB DP} (Class of 2028)}
+\end{itemize}
+
+\resumeSubheading{Harvard University}{Remote}{Harvard Undergraduate Ventures -- TECH Summer Program (HUVTSP)}{Jul 2025 -- Aug 2025}
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{Selected among \textbf{$<$15\%} of applicants; venture \& technology entrepreneurship; internship placement at Rove (YC-backed)}
+\end{itemize}
+
+% ---------- Achievements ----------
+\section{Achievements}
+
+\begin{itemize}[leftmargin=*, nosep, topsep=2pt]
+  \resumeItem{\textbf{ICSC Silver Honour} (Nov 2025) --- top 2\% of 2,500+ globally in timed coding and algorithms}
+  \resumeItem{\textbf{CMIMC 2026} --- top 10 team at Carnegie Mellon Informatics \& Mathematics Competition}
+  \resumeItem{\textbf{Malaysia WSDC} (Apr 2025) --- champion team \& best speaker among 50+ teams and 200+ debaters; top $\sim$60 nationwide (ISDS) from 1,500+}
+  \resumeItem{\textbf{F1 in Schools} --- design engineer, \textbf{top 7} nationally; top-10 fastest car; CFD \& Fusion 360 aerodynamics}
+\end{itemize}
+
+\end{document}

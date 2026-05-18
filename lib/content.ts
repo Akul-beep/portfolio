@@ -50,7 +50,11 @@ export const site = {
   email: "akulnehra@gmail.com",
   linkedin: "https://www.linkedin.com/in/akul-nehra-629994330/",
   github: "https://github.com/Akul-beep",
-  resumeUrl: "/resume.pdf",
+  /** Opens in browser PDF viewer (new tab from nav buttons). */
+  resumePdfUrl: "/resume.pdf",
+  /** Optional landing page with view/download actions. */
+  resumePageUrl: "/resume",
+  resumeDownloadFilename: "Akul_Nehra_Resume.pdf",
   roleDetail: "founder · builder",
   org: "Genesis Global School",
   status: "Open to SWE internships · Summer 2026",

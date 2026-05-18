@@ -1,0 +1,172 @@
+% Akul Nehra — Resume Final
+% pdfLaTeX
+
+\documentclass[10.4pt,letterpaper]{article}
+
+\usepackage[letterpaper, top=0.42in, bottom=0.42in, left=0.5in, right=0.5in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+
+% ---- Palette ----
+\definecolor{navy}{RGB}{10,45,100}
+
+% ---- Section formatting ----
+\titleformat{\section}{\large\bfseries\color{navy}}{}{0em}{}[\color{navy}\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{3pt}
+
+% ---- Subheading helper ----
+\newcommand{\sub}[4]{%
+  \vspace{2pt}%
+  {\bfseries #1}\hfill{\bfseries\small #2}\\[-1pt]%
+  \textit{\small #3}\hfill{\textit{\small #4}}%
+  \vspace{1pt}%
+}
+
+% ---- Tight bullet list ----
+\newenvironment{tlist}{%
+  \begin{itemize}[leftmargin=1.3em, nosep, topsep=2pt, itemsep=0.5pt]%
+  \small%
+}{%
+  \end{itemize}%
+}
+
+\begin{document}
+
+% ================================================================
+%  HEADER
+% ================================================================
+\begin{center}
+  {\LARGE\bfseries\color{navy} Akul Nehra}\\[3pt]
+  \small
+  \href{mailto:akulnehra@gmail.com}{akulnehra@gmail.com}\enspace\textbar\enspace
+  \href{https://akulnehra.vercel.app}{akulnehra.vercel.app}\enspace\textbar\enspace
+  \href{https://www.linkedin.com/in/akul-nehra-629994330/}{\textcolor{navy}{LinkedIn}}\enspace\textbar\enspace
+  \href{https://github.com/Akul-beep}{\textcolor{navy}{GitHub}}\\[3pt]
+  \small\textit{Mobile React Native \& Full-Stack Developer $\cdot$ I build things people actually use $\cdot$ App Store shipped $\cdot$ YC intern $\cdot$ IEEE published}
+\end{center}
+
+% ================================================================
+%  TECHNICAL SKILLS
+% ================================================================
+\section{Technical Skills}
+\small
+\begin{tabular}{@{}p{2.1cm}p{15.1cm}}
+\textbf{Languages}    & JavaScript, TypeScript, Python, Swift, SQL (MySQL, PostgreSQL) \\[1.5pt]
+\textbf{Mobile}       & \textbf{React Native} (cross-platform iOS \& Android), Swift/UIKit, Flutter; App Store release pipeline, responsive UI, component architecture \\[1.5pt]
+\textbf{Frontend}     & React.js, Next.js, Tailwind CSS, Bootstrap, Framer Motion, HTML/CSS, Axios \\[1.5pt]
+\textbf{Backend}      & Node.js, Supabase, Firebase, FastAPI, REST APIs \\[1.5pt]
+\textbf{AI/ML}        & Gemini API, Groq, OpenAI API, Prompt Engineering, AI Agents, LangChain, PyTorch, TensorFlow, scikit-learn, pandas, NumPy \\[1.5pt]
+\textbf{Dev Tools}    & Git/GitHub, Xcode, VS Code, Cursor, Insomnia, Postman, PostHog, Vercel, Chrome DevTools, Fusion 360 \\[1.5pt]
+\textbf{Soft Skills}  & Product Design, User Research, Talking to Users, Systems Thinking, Technical Writing, Cross-functional Collaboration, Public Speaking
+\end{tabular}
+
+% ================================================================
+%  EXPERIENCE
+% ================================================================
+\section{Experience}
+
+\sub{Technical Intern}{Jun 2025 – Jul 2025}{Rove Miles (YC W24) · Universal Airline Miles Platform}{Remote}
+\begin{tlist}
+  \item Rebuilt flight tracking routes and destination-optimization logic for the core search product at a Y Combinator-backed startup, shipping $\sim$15 hrs/week alongside the full engineering team.
+  \item Integrated airline and pricing APIs; redesigned the flight comparison UX with smarter filtering and real-time data handling; improvements validated with \textbf{10–20 early users} during rollout.
+  \item Owned value-per-mile ranking and redemption-recommendation features from spec to production; changes shipped through peer code review with the founding team.
+\end{tlist}
+
+\vspace{3pt}
+\sub{Founder \& Developer}{2025 – Present}{Orion Finance · Personal Finance App}{React Native · Gemini API · Supabase · PostHog · iOS App Store · Android (built, pending Play Store)}
+\begin{tlist}
+  \item Built and shipped a personal finance app in \textbf{React Native}, end-to-end from design to live \textbf{App Store listing}; Android build complete, pending Play Store release; reached \textbf{200+ users within 2 months} with zero paid acquisition.
+  \item Achieved a \textbf{91\% 7-day retention rate}, tracked via PostHog, by talking to users weekly and shipping targeted improvements on a tight feedback loop.
+  \item Integrated \textbf{Gemini API} for AI-driven financial insights; built auth and real-time data layer on Supabase; used Framer Motion for polished, native-feeling animations.
+\end{tlist}
+
+\vspace{3pt}
+\sub{President}{2025 – Present}{Genesis Global School AI Club · 25 Members}{New Delhi, India}
+\begin{tlist}
+  \item Designed and led curriculum covering ML fundamentals, model limitations, prompt engineering, and responsible AI deployment; grew active membership 40\% in one term.
+  \item Organised hands-on workshops and external speaker sessions; mentored members on building with AI tools and evaluating model outputs critically.
+\end{tlist}
+
+\vspace{3pt}
+\sub{Executive Director \& Founder}{2025 – Present}{Project ARISE · Financial Literacy Nonprofit}{\href{https://arisewomen.cc}{arisewomen.cc} · 4 Countries}
+\begin{tlist}
+  \item Founded a financial-literacy nonprofit targeting rural women; secured a \textbf{\$2,500 IB Youth Action Fund grant} and delivered workshops to \textbf{300+ women across 4 countries}.
+  \item Wrote the full curriculum, recruited and managed cross-border volunteer teams, and built the program website end-to-end.
+\end{tlist}
+
+\vspace{3pt}
+\sub{Founder \& Organizer}{2025 – Present}{Frontier Challenge · Global STEM Competition}{\href{https://frontierchallenge.com}{frontierchallenge.com} · 14 Countries}
+\begin{tlist}
+  \item Built operations, outreach, and judging infrastructure from scratch; scaled to \textbf{200+ participants across 14 countries} within the first cycle.
+  \item Raised \textbf{\$500+} in sponsorship in under two weeks; designed tiered judging rubrics for real-world engineering submissions.
+\end{tlist}
+
+% ================================================================
+%  PROJECTS
+% ================================================================
+\section{Projects}
+
+\sub{Flowly · AI Adaptive Scheduler}{\href{https://flowlyofficial.vercel.app/}{flowlyofficial.vercel.app}}{Next.js · TypeScript · Groq · Gemini API · Supabase · Vercel}{2025 – Present}
+\begin{tlist}
+  \item Built an AI scheduler that decomposes tasks into adaptive, time-boxed subtasks based on user energy and deadlines; scaled to \textbf{100+ users} with a \textbf{96\% 7-day retention rate}, tracked via PostHog.
+  \item Conducted structured user surveys and evaluation sessions to drive the feature roadmap; integrated Groq and Gemini API for task decomposition, Supabase for auth and user data, deployed on Vercel.
+\end{tlist}
+
+\vspace{3pt}
+\sub{IEEE ICITSIF 2026 · Peer-Reviewed ML Research}{Accepted Jan 2026}{Python · scikit-learn · AI/ML · Environmental Modelling}{2025 – 2026}
+\begin{tlist}
+  \item Co-authored a peer-reviewed paper accepted at \textbf{IEEE ICITSIF 2026}; modelled urban traffic incidents, wait times, and CO\textsubscript{2} emissions using real-world datasets.
+  \item Designed the feature engineering pipeline and benchmarked multiple ML models; findings indicated up to \textbf{23\% reduction in estimated emissions} through signal-timing optimisation.
+\end{tlist}
+
+\vspace{3pt}
+\sub{LLM YouTube Controller}{Side Project}{Python · LLM APIs · macOS Automation}{}
+\begin{tlist}
+  \item Built a macOS tool that automatically opens YouTube when an LLM begins generating a response and closes it on completion; solves a real distraction problem while the model is running.
+\end{tlist}
+
+% ================================================================
+%  EDUCATION
+% ================================================================
+\section{Education}
+
+\sub{Genesis Global School}{New Delhi, India}{International Baccalaureate Diploma Programme (IB DP) · Class of 2028}{2026 – 2028}
+\begin{tlist}
+  \item Completed IB MYP (2026); incoming IB DP with anticipated HL subjects in Mathematics, Computer Science, and Economics.
+\end{tlist}
+
+\vspace{3pt}
+\sub{Harvard HUVTSP · Venture \& Technology Entrepreneurship}{Jul – Aug 2025}{Technology \& Entrepreneurship Center at Harvard (TECH) · Harvard SEAS}{Remote}
+\begin{tlist}
+  \item Competitively selected (\textbf{under 15\% acceptance rate}) into Harvard's innovation academy; one of the only programs placing high school students into live VC-backed startup internships.
+  \item Completed MBA-level case studies covering Go-To-Market strategy, venture capital, product-market fit, operations, and innovation management.
+  \item Attended fireside chats with \textbf{Mark Cuban}, \textbf{Ted Sarandos} (Netflix CEO), \textbf{Chris Barton} (Shazam Founder), \textbf{Stanley Tang} (DoorDash Co-Founder), and \textbf{Thomas Deng} (Goldman Sachs MD), among others; asked questions directly and received their personal takes on building and scaling companies.
+\end{tlist}
+
+% ================================================================
+%  ACHIEVEMENTS
+% ================================================================
+\section{Achievements \& Awards}
+
+\begin{tlist}
+  \item \textbf{ICSC Silver Honour} (Nov 2025) · top 2\% of 2,500+ global competitors; timed algorithmic coding and technical paper analysis under exam conditions.
+  \item \textbf{CMIMC 2026} (Feb 2026) · top-10 team at Carnegie Mellon Informatics \& Mathematics Competition; one of the most selective high-school math and CS competitions in North America.
+  \item \textbf{Malaysia WSDC} (Apr 2025) · Champion team and Best Speaker across 50+ international teams and 200+ debaters; ranked top 60 nationally (ISDS) from 1,500+ participants.
+  \item \textbf{F1 in Schools · Sixth Gear} (2024--25) · Design Engineer; top 7 nationally, top-10 fastest car; ran CFD aerodynamic analysis and Fusion 360 modelling for competition \href{https://www.teamsixthgear.com/}{(teamsixthgear.com)}.
+\end{tlist}
+
+% ================================================================
+%  INTERESTS
+% ================================================================
+\section{Interests}
+
+\small Rubik's Cubes (sub-20s solve) \textbar\ Competitive Debate \& Public Speaking \textbar\ Guitar \textbar\ Building personal productivity tools
+
+\end{document}

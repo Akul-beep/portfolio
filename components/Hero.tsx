@@ -109,7 +109,7 @@ export function Hero() {
             <StaggerItem>
               <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
                 <Button href="#work">View work</Button>
-                <Button href={site.resumeUrl} variant="ghost" download>
+                <Button href={site.resumePdfUrl} variant="secondary" external>
                   Resume
                 </Button>
                 <Button href={site.linkedin} variant="ghost" external>

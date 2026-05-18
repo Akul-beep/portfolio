@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useReducedMotion } from "framer-motion";
 import { hero, navLinks, site } from "@/lib/content";
 import { TypewriterLine } from "@/components/motion/TypewriterLine";
+import { withBasePath } from "@/lib/paths";
 import { cn } from "@/lib/utils";
 
 function GitHubIcon() {
@@ -136,13 +137,14 @@ export function SiteHeader() {
             >
               <LinkedInIcon />
             </a>
-            <Link
-              href={site.resumeUrl}
-              download
+            <a
+              href={withBasePath(site.resumePdfUrl)}
+              target="_blank"
+              rel="noopener noreferrer"
               className="ml-1 rounded-lg bg-ink px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-accent"
             >
               Resume
-            </Link>
+            </a>
           </nav>
 
           <button
@@ -234,14 +236,15 @@ export function SiteHeader() {
           >
             LinkedIn
           </a>
-          <Link
-            href={site.resumeUrl}
-            download
+          <a
+            href={withBasePath(site.resumePdfUrl)}
+            target="_blank"
+            rel="noopener noreferrer"
             className="mt-4 rounded-lg bg-ink px-4 py-3 text-center font-semibold text-white"
             onClick={close}
           >
             Resume
-          </Link>
+          </a>
         </nav>
       </motion.div>
     </>

@@ -71,7 +71,7 @@ export function ContactSection() {
             <Button href={site.github} variant="ghostOnDark" external>
               GitHub
             </Button>
-            <Button href={site.resumeUrl} variant="ghostOnDark" download>
+            <Button href={site.resumePdfUrl} variant="ghostOnDark" external>
               Resume
             </Button>
           </motion.div>
